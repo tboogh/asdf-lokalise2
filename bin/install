@@ -5,6 +5,21 @@ set -euo pipefail
 current_script_path=${BASH_SOURCE[0]}
 plugin_dir=$(dirname "$(dirname "$current_script_path")")
 
+OS=$(uname -s)
+ARCH=$(uname -m)
+
+case "$OS" in
+  "Darwin") OS="darwin" ;;
+  "Linux") OS="linux" ;;
+  *) echo "Unsupported OS: $OS" && exit 1 ;;
+esac
+
+case "$ARCH" in
+  "x86_64") ARCH="amd64" ;;
+  "arm64" | "aarch64") ARCH="arm64" ;;
+  *) echo "Unsupported architecture: $ARCH" && exit 1 ;;
+esac
+
 # shellcheck source=./lib/utils.bash
 source "${plugin_dir}/lib/utils.bash"
 

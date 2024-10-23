@@ -2,8 +2,7 @@
 
 set -euo pipefail
 
-# TODO: Ensure this is the correct GitHub homepage where releases can be downloaded for lokalise2.
-GH_REPO="https://github.com/tboogh/lokalise2"
+GH_REPO="https://github.com/lokalise/lokalise-cli-2-go"
 TOOL_NAME="lokalise2"
 TOOL_TEST="lokalise2 --version"
 
@@ -31,8 +30,6 @@ list_github_tags() {
 }
 
 list_all_versions() {
-	# TODO: Adapt this. By default we simply list the tag names from GitHub releases.
-	# Change this function if lokalise2 has other means of determining installable versions.
 	list_github_tags
 }
 
